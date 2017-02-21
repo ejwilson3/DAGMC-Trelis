@@ -3,6 +3,9 @@
 
 #include "CubitCommandInterface.hpp"
 #include "CubitMessageHandler.hpp"
+#include <QObject>
+
+#include <iostream>
 
 // CGM includes
 #include "RefEntity.hpp"
@@ -18,12 +21,19 @@ typedef std::map<RefEntity*, moab::EntityHandle>::iterator refentity_handle_map_
  * \brief The DAGMCExportCommand class implements all the steps necessary
  * to load faceted data into a MOAB instance and export as a MOAB mesh.
  */
+
+void testing();
+
 class DAGMCExportCommand: public CubitCommand
 {
 public:
   DAGMCExportCommand();
   ~DAGMCExportCommand();
 
+
+  void add_export_types();
+  void remove_export_types();
+  void handle_export(const QString &filename, const QString &filter);
   std::vector<std::string> get_syntax();
   std::vector<std::string> get_syntax_help();
   std::vector<std::string> get_help();
