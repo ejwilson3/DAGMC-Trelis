@@ -59,7 +59,7 @@ set(SRC
     mcnp2cad/volumes.hpp
     mcnp2cad/iGeomError.cc)
 
-add_library(dagmc_export_plugin MODULE ${SRC})
+add_library(dagmc_export_plugin SHARED ${SRC})
 target_link_libraries(dagmc_export_plugin cubiti cubit_util cubit_geom ${DAGMC_DIR}/libmakeWatertight.so ${MOAB_LIBRARIES})
 
 set(COMPONENT_SRC
